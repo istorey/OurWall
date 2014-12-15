@@ -1,5 +1,8 @@
 require 'sinatra'
 require 'sinatra/reloader'
+require './config/environments'
+
+require './models/model'
 
 get '/' do
 	"test"
@@ -9,7 +12,7 @@ get '/login' do
 
 end
 
-get '/bloomingdale'
+get '/bloomingdale' do
 
 end
 

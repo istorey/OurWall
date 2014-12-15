@@ -1,0 +1,4 @@
+developement:
+  adapter: postgresql
+  database: ourwall
+  host: localhost

@@ -6,14 +6,28 @@ require './config/environments'
 require './models/model'
 
 get '/' do
-	"test"
+	erb :index
 end
 
-get '/login' do
+#get '/login' do
 
+#end
+
+#get '/bloomingdale' do
+
+#end
+
+post '/submit' do
+	@model = Model.new(params[:model])
+		if @model.save
+				redirect '/models'
+		else
+				"Sorry, there was an error!"
+		end
 end
 
-get '/bloomingdale' do
-
+get '/models' do
+	@models = Model.all
+	erb :models
 end
 

@@ -6,6 +6,6 @@ class CreateModel < ActiveRecord::Migration
 end
 
 	def down
-		drop table :models
+		drop_table :models
 	end
 end

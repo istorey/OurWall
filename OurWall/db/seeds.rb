@@ -1,5 +1,0 @@
-Neighborhood.create(name: 'Bloomingdale', password: hipsterville)
-Neighborhood.create(name: 'Adams Mogan', password: partyatdans)
-Neighborhood.create(name: 'Shaw', password: upandcomming)
-Neighborhood.create(name: 'Brookland', password: brooklandsfinest)
-Neighborhood.create(name: 'DuPont', password: shophouse4life)

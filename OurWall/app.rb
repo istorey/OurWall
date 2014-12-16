@@ -1,9 +1,12 @@
 require 'sinatra'
 require 'sinatra/reloader'
 require 'sinatra/activerecord'
+
 require './config/environments'
 
-require './models/model'
+require './models/neighborhood'
+require './models/post'
+require './models/wall'
 
 get '/' do
 	erb :index
@@ -16,18 +19,4 @@ end
 #get '/bloomingdale' do
 
 #end
-
-post '/submit' do
-	@model = Model.new(params[:model])
-		if @model.save
-				redirect '/models'
-		else
-				"Sorry, there was an error!"
-		end
-end
-
-get '/models' do
-	@models = Model.all
-	erb :models
-end
 

@@ -3,5 +3,6 @@ class CreatePosts < ActiveRecord::Migration
   	create_table :posts do |t|
   	t.text :image
   	t.belongs_to :wall
+  	end
   end
 end

@@ -4,11 +4,16 @@
 	<title></title>
 </head>
 <body>
-<h3>Welcome to Sinatra!</h3>
+<h3>Welcome to OurWall! What neighborhood do you live in?</h3>
+
 <form action="/submit" method="POST">
-	<input type="text" name="model[name]" value="Enter Model Name" />
 	<input type="submit" value="Submit" />
 </form>
+<select name="neighborhoodlist" form="neighborhoodform">
+<option value ="Bloomingdale">Bloomingdale</option>
+<option value ="Brookland">Brookland</option>
+<option value ="Shaw">Shaw</option>
+<option value ="Adams Morgan">Adams Morgan</option>
 
 </body>
 </html>

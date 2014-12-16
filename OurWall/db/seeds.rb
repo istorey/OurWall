@@ -17,10 +17,12 @@ Wall.create([
  
   { :neighborhood_id => 1, :image_id => 1 },
   { :neighborhood_id => 1, :image_id => 2 },
+
 ])
 
 Post.create([
  
   { :image => "http://i.imgur.com/o9TMWDZ.jpg" },
   { :image => "http://i.imgur.com/eDgHj1T.jpg" },
+  
 ])

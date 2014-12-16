@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+<form action="/" method="post">
+	<input type="text" placeholder="Picture url" name="image"/>
+	<input type="submit" value="add"/>
+	</form>
+
+<ul>
+<% @posts.each do |post| %>
+    <li><%= post.image %></li>
+    </ul>
+
+</body>
+</html>
+

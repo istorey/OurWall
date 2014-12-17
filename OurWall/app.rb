@@ -33,10 +33,10 @@ end
 
 post '/login' do
 		
-		@neighborhood = Neighborhood.find_by(name: params[:neighborhoodlist])
+		neighborhood = Neighborhood.find_by(name: params[:neighborhoodlist])
+		input_value = params[:password]
 
-		if @neighborhood
-			session[:name] = neighborhood.name
+		if neighborhood.password_digest == input_value
 			redirect('/neighborhood')
 
 		else 
@@ -46,11 +46,11 @@ post '/login' do
 end
 
 get '/neighborhood' do
-		@post = Post.all
-
+		@post = Post.find_by(image: params[:id])
 	erb :neighborhood
 
 end
+
 
 post '/wall' do
 	
@@ -60,7 +60,4 @@ end
 put '/wall' do
 	@post = Post.new(params[:image])
 end
-
-
-#binding 'pry'
 

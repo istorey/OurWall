@@ -1,6 +1,7 @@
 require 'sinatra'
 require 'sinatra/reloader'
 require 'sinatra/activerecord'
+require 'bcrypt'
 require 'pry'
 
 require './config/environments'
@@ -13,17 +14,29 @@ require './models/wall'
 
 enable :sessions
 
+#helpers do
+#		def current_neighborhood
+#			@neighborhood || nil
+#		end
+
+#		def current_neighborhood?
+#			@neighborhood == nil ? false : true
+#		end
+
+before do
+		@errors ||= []
+end
+
 get '/' do
 	erb :index
 end
 
 post '/login' do
 		
-		@neigh = Neighborhood.find_by(name: params[:neighborhoodlist])
-		@neigh.name
+		@neighborhood = Neighborhood.find_by(name: params[:neighborhoodlist])
 
-		if @neigh.password_digest == params[:password]
-			#logged in with some kind of section functionality
+		if @neighborhood
+			session[:name] = neighborhood.name
 			redirect('/neighborhood')
 
 		else 
@@ -33,7 +46,7 @@ post '/login' do
 end
 
 get '/neighborhood' do
-
+		@post = Post.all
 
 	erb :neighborhood
 
@@ -43,6 +56,11 @@ post '/wall' do
 	
 	erb :wall
 end
+
+put '/wall' do
+	@post = Post.new(params[:image])
+end
+
 
 #binding 'pry'
 

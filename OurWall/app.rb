@@ -47,7 +47,6 @@ post '/makepost' do
 	@new_post = Post.new(image: params[:url])
 			if @new_post.save
 			redirect ('/')
-
 			else 
 				@errors << "wrong" 
 			redirect ('/makepost')
@@ -65,5 +64,3 @@ post '/delete/:post_id' do
   Post.destroy(@post_id)
   redirect '/'
 end
-
-#binding.pry

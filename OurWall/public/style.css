@@ -1,4 +1,4 @@
-body {
+html {
 	background: url(bg3.jpg);
 	background-position: center;
 }
@@ -7,7 +7,6 @@ img {
 	height: 250px;
 	width: 175px;
 	border: none;
-	box-shadow: 25px;
 }
 
 iframe {
@@ -16,8 +15,21 @@ iframe {
 	background: white;
 	height:250px; 
 	width:175px;
+	box-shadow: 6px 6px red;
 }
 
 div {
 	display: inline;
+	margin: 15px;
+}
+
+h3 {
+	color: #00FFD7;
+	font-family:'Montserrat Alternates', sans-serif;
+	font-size: 20px;
+	text-align: center;
+}
+
+form {
+
 }

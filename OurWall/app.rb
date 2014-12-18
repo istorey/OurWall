@@ -55,13 +55,15 @@ post '/makepost' do
 end
 
 get '/delete/:post_id' do
-  
+  @post_id = params[:post_id]
   erb :delete
 
 end
 
 post '/delete/:post_id' do
-  Post.destroy(params[:post_id])
+  @post_id = params[:post_id]
+  Post.destroy(@post_id)
   redirect '/'
 end
+
 #binding.pry

@@ -1,7 +1,6 @@
 require 'sinatra'
 require 'sinatra/reloader'
 require 'sinatra/activerecord'
-require 'bcrypt'
 require 'pry'
 
 require './config/environments'
@@ -9,8 +8,6 @@ require './config/environments'
 require './models/neighborhood'
 require './models/post'
 require './models/wall'
-
-
 
 enable :sessions
 
@@ -37,7 +34,6 @@ post '/login' do
 end
 
 get '/' do
-		#should show all posts
 		@post = Post.all
 	erb :neighborhood
 
@@ -58,5 +54,14 @@ post '/makepost' do
 		end
 end
 
+get '/delete/:post_id' do
+  
+  erb :delete
 
+end
+
+post '/delete/:post_id' do
+  Post.destroy(params[:post_id])
+  redirect '/'
+end
 #binding.pry

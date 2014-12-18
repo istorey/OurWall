@@ -5,3 +5,6 @@ gem "activerecord"
 gem "sinatra-activerecord"
 gem "pg"
 gem "pry"
+
+ruby '2.0.0'
+

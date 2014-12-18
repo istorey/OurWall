@@ -19,7 +19,7 @@ get '/prelogin' do
 end
 
 post '/login' do
-		
+		#super safe authentication system
 		@neighborhood = Neighborhood.find_by(name: params[:neighborhoodlist])
 		input_value = params[:password]
 
@@ -33,6 +33,7 @@ post '/login' do
 end
 
 get '/' do
+		#displays all posts
 		@post = Post.all
 	erb :neighborhood
 

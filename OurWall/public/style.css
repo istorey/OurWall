@@ -1,5 +1,17 @@
-img {
-
-
+html {
+	background: url(bg3.jpg);
+	background-position: center;
 }
 
+img {
+	height: 250px;
+	width: 175px;
+	border: none;
+	box-shadow: 25px;
+}
+
+iframe {
+	float: top;
+	clear: both;
+	background: white;
+}

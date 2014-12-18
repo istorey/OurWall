@@ -14,50 +14,49 @@ require './models/wall'
 
 enable :sessions
 
-#helpers do
-#		def current_neighborhood
-#			@neighborhood || nil
-#		end
-
-#		def current_neighborhood?
-#			@neighborhood == nil ? false : true
-#		end
-
 before do
 		@errors ||= []
 end
 
-get '/' do
+get '/prelogin' do
 	erb :index
 end
 
 post '/login' do
 		
-		neighborhood = Neighborhood.find_by(name: params[:neighborhoodlist])
+		@neighborhood = Neighborhood.find_by(name: params[:neighborhoodlist])
 		input_value = params[:password]
 
-		if neighborhood.password_digest == input_value
-			redirect('/neighborhood')
+		if @neighborhood.password_digest == input_value
+			redirect('/makepost')
 
 		else 
 			@errors << "Wrong password"
 			redirect('/')
-	end
+		end
 end
 
-get '/neighborhood' do
-		@post = Post.find_by(image: params[:id])
+get '/' do
+		#should show all posts
+		@post = Post.all
 	erb :neighborhood
 
 end
 
-
-post '/wall' do
-	
-	erb :wall
+get '/makepost' do
+	erb :makepost
 end
 
-put '/wall' do
-	@post = Post.new(params[:image])
+post '/makepost' do
+	@new_post = Post.new(image: params[:url])
+			if @new_post.save
+			redirect ('/')
+
+			else 
+				@errors << "wrong" 
+			redirect ('/makepost')
+		end
 end
 
+
+#binding.pry

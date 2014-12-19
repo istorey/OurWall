@@ -7,7 +7,7 @@ require './models/neighborhood'
 require './models/post'
 require './models/wall'
 
-enable :sessions
+#enable :sessions
 
 before do
 		@errors ||= []
@@ -32,7 +32,6 @@ post '/login' do
 end
 
 get '/' do
-		#displays all posts
 		@post = Post.all
 	erb :neighborhood
 
